@@ -1,0 +1,114 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+
+<body>
+    <!--nav bar-->
+    <div>
+      {% block navbar %}
+      <div style = "position:sticky">
+        <h1>
+          <p></p>
+          <a href = "/">
+            <img src = "{% static 'imgs/logo.png' %}" style = "width:7%; margin-left:0.2vw">
+          </a>
+          <a href = "/" style = "margin-left: 28vw;font-size:2vw">
+            <img src = "{% static 'imgs/title.png' %}" style = "width:27%">
+          </a>
+          <a class = "za" href = "/log-in-page" style = "margin-left:23vw;">
+            <img src = "{% static 'imgs/Login.png' %}" style = "width:10%">
+          </a>
+        </h1>
+      
+        <div id ="navbar">
+        <h2 class = "top-bar-right" style = " padding:1px; ">
+          <ul class = "menu" style = "font-size:20px;">
+            <li><a href = "/" >Home</a></li>
+            <li><a href = "/live-chat">Live Chat</a></li>
+            <li><a href = "/about">About</a></li>
+            <li><a href = "/hikes/all-hikes/">All Hikes</a></li>
+            <li><a href = "/add_hike">Add Hike</a></li>
+
+
+            <li>
+              
+
+                {% csrf_token %}
+           
+            <input class="form-control me-2" type ="search" placeholder="Search for a hike... " aria-label="Search" name ="searched"><button class = "hollow button" type = "submit">SEARCH</button></form></li>
+           
+            <li style = "margin-left:30vw;">
+              <a href = "/">
+              <div id="MyClockDisplay" class="hollow button" style = "font-size:17px" onload="showTime()"></div>
+              </a>
+            </li>
+                <script>
+                function showTime(){
+                  var date = new Date();
+                  var h = date.getHours(); 
+                  var m = date.getMinutes(); 
+                  var s = date.getSeconds(); 
+                  var session = "AM";
+                  
+                  if(h == 0){
+                      h = 12;
+                  }
+                  
+                  if(h > 12){
+                      h = h - 12;
+                      session = "PM";
+                  }
+                  
+                  h = (h < 10) ? "0" + h : h;
+                  m = (m < 10) ? "0" + m : m;
+                  s = (s < 10) ? "0" + s : s;
+                  
+                  var time = h + ":" + m + ":" + s
+                + session;
+                document.getElementById("MyClockDisplay").innerText = time;
+                document.getElementById("MyClockDisplay").textContent = time;
+          
+                  setTimeout(showTime, 1000);
+      }
+      
+                showTime();
+                </script>
+              
+              </a>
+            </li>
+            <li style = "margin-left: 10px;margin-top:0.8vw"><a href = "/help" class = "hollow alert button" style = "font-size: 17px;"> HELP </a></li>
+          </ul>
+        </h2>
+      </div>
+      {% endblock %}
+
+
+
+  {% block body %}{% endblock %}
+
+  <script src="{% static 'js/vendor.js' %}"></script>
+  <script src="{% static 'js/foundation.min.js' %}"></script>
+</body>
+
+
+{% block footer %}
+<div class="footer-box">
+  <form>
+   <a style = "margin-left: 13vw;" >
+      <span></span>
+      Page created by James Meyer - This page specifically created for CINS465 - Web Dev
+    </a>
+  </form>
+</div>
+
+{% endblock %}
+</html>
