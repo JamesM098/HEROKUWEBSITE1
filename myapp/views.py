@@ -7,5 +7,10 @@ def index(request, page=0):
     "display_requirement": "Login.png",
 
   }
-
   return render(request, "index.html", context=context) 
+
+def login(request):
+  context={
+    "title":"Logging In..."
+  }
+  return render(request, "login.html", context = context)
