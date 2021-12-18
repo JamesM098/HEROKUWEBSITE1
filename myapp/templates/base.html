@@ -41,7 +41,7 @@
 
             <li>
               
-
+              <form class = "d-flex" method = POST action ="{% url 'hikes_url' %}">
                 {% csrf_token %}
            
             <input class="form-control me-2" type ="search" placeholder="Search for a hike... " aria-label="Search" name ="searched"><button class = "hollow button" type = "submit">SEARCH</button></form></li>

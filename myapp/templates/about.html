@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %} {{ title }} {% endblock %}
+
+
+
+
+
+{% block body %}
+<div class = "main-box">
+ <h1 style = "font-size:20px">
+  <ul style = "color:lavender; margin-top: 1px; text-align:left;"> New Here?</ul>
+  <li style= "color:rgb(0, 238, 255);">Check out the statistics below</li>
+  <li style= "color:rgb(0, 238, 255);">Click "Home" at the top to go to the Home Page</li>
+  <li style= "color:rgb(0, 238, 255);">Search in the Search bar at the top to search for a hike</li>
+  <li style= "color:rgb(0, 238, 255);">Click "All Hikes" at the top to see the most recent hikes completed</li>
+  <li style= "color:rgb(0, 238, 255);">Click "Live Chat" at the top of the page to enter the Live Chat</li>
+
+
+
+
+
+  </h1>
+
+  <div class="left-box">
+   <ul style = "color:lavender; font-size:25px;">Total Users: {{ user_count }}</ul>
+
+
+  </div>
+
+  <div class="right-box">
+   <ul style = "color:lavender; font-size:25px;">Total Hikes: {{ hike_count }}</ul>
+
+
+  </div>
+
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+{% block buttons %}
+{% endblock %}
+
+
+
+
+
+{% block css %}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 2px;
+    transition: transform .2s;
+    margin: 0 auto;
+  }
+  .row {
+    clear: both;
+    display: table;
+  }
+  .xa {
+    font-size: 2vw;
+    font-family:'Times New Roman', Times, serif;
+
+    text-transform: uppercase;
+    margin: 20px;
+  }
+  .za {
+    font-size: 2vw;
+    font-family:cursive;
+    text-transform: uppercase;
+  }
+  body {
+  font-family: sans-serif;
+  background:#75777c;
+}
+
+    .column:hover {
+      -ms-transform: scale(1.2); /* IE 9 */
+      -webkit-transform: scale(1.2); /* Safari 3-8 */
+      transform: scale(1.05); 
+    }
+
+
+    .footer-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+
+
+  .footer-box a span {
+    position: absolute;
+    display: block;
+  }
+
+  .footer-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 2s linear infinite;
+  }
+
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+
+    
+  }
+
+
+#navbar {
+  overflow: hidden;
+  background-color:whitesmoke
+}
+
+#navbar a {
+
+  padding: 14px 16px;
+
+}
+
+
+
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 10px;
+}
+
+
+
+
+.main-box {
+  position: relative;
+  margin-top:12vw;
+  left: 50%;
+  width: 400px;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.main-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+
+
+.left-box {
+  position:absolute;
+  margin-top:2w;
+  margin-left:1vw;
+  width: 400px;
+  padding: 70px;
+  transform: translate(-125%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.left-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+
+.right-box {
+  position:absolute;
+  margin-top:2w;
+  margin-left:1vw;
+  width: 400px;
+  padding: 70px;
+  transform: translate(110%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.right-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+
+
+
+  </style>
+{% endblock %}
+
